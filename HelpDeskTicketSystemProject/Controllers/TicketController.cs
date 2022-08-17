@@ -36,5 +36,11 @@ namespace HelpDeskTicketSystemProject.Controllers
             return newTicket;
         }
 
+        [HttpGet("GetTicketById/{id}")]
+        public Ticket getTicketById(int id)
+        {
+            return context.Tickets.FirstOrDefault(t => t.Id == id);
+        }
+
     }
 }

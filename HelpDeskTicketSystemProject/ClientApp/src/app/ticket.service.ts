@@ -12,4 +12,8 @@ export class TicketService {
   showAllTickets():any{
     return this.http.get(this.baseUrl+this.endpoint+"/ShowAllTickets");
   }
+
+  getTicketById(id:number):any{
+    return this.http.get(`${this.baseUrl}${this.endpoint}/GetTicketById/${id}`);
+  }
 }
