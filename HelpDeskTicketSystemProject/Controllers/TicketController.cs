@@ -17,19 +17,15 @@ namespace HelpDeskTicketSystemProject.Controllers
         }
 
         [HttpPost("AddAPost")]
-        public Ticket AddPost(string UserName, string ResolvedBy, string SubjectLine, string QuestionDetails, string Status, DateTime DateOpened, DateTime DateClosed, string Resuloution, bool Favorited)
+        public Ticket AddPost(string UserName, string SubjectLine, string QuestionDetails, string Status)
         {
             Ticket newTicket = new Ticket()
             {
                 UserName = UserName,
-                ResolvedBy = ResolvedBy,
                 SubjectLine = SubjectLine,
                 QuestionDetails = QuestionDetails,
                 Status = Status,
-                DateOpened = DateOpened,
-                DateClosed = DateClosed,
-                Resolution = Resuloution,
-                Favorited = Favorited
+                DateOpened = DateTime.Now
             };
             context.Tickets.Add(newTicket);
             context.SaveChanges();

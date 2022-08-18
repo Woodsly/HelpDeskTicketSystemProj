@@ -1,6 +1,18 @@
 <div *ngFor="let t of tickets">
   <a routerLink="/GetTicketById/{{ t.id }}">click here</a>
-  <h2>{{ t.subjectLine }}</h2>
+  <h2>{{ t.id }} {{ t.subjectLine }}</h2>
   <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
   <p>Status: {{ t.status }}</p>
+</div>
+
+<div>
+  <form #ticketForm="ngForm" (ngSubmit)="addTicket(ticketForm)">
+    User Name:<input type="text" name="userName" ngModel /> Subject:<input
+      type="text"
+      name="subjectLine"
+      ngModel
+    />
+    Question Details:<input type="textarea" name="questionDetails" ngModel />
+    <button>Submit Ticket</button>
+  </form>
 </div>
