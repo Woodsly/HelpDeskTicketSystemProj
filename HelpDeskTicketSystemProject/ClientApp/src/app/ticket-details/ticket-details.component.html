@@ -6,15 +6,12 @@
 <p>Current Status: {{ displayTicket.status }}</p>
 
 <div *ngIf="displayTicket.status == 'Closed'">
-  <p>Resolution: {{displayTicket.resolution}}</p>
+  <p>Resolution: {{ displayTicket.resolution }}</p>
   <p>Date Closed: {{ displayTicket.dateClosed | date: "MM/dd/yyyy" }}</p>
-  <p>Resolved By: {{displayTicket.resolvedBy}}</p>
-
-
-
-
-
+  <p>Resolved By: {{ displayTicket.resolvedBy }}</p>
 </div>
+
+<!-- <button (click)="addToFavorites()"></button> -->
 
 <div *ngIf="displayTicket.status == 'Open'">
   <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">

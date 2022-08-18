@@ -31,4 +31,8 @@ export class TicketDetailsComponent implements OnInit {
     
   }
 
+  // addToFavorites():void{
+
+  // }
+
 }

@@ -4,7 +4,7 @@
   <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
   <p>Status: {{ t.status }}</p>
 </div>
-
+<h1>{{ name }}</h1>
 <div>
   <form #ticketForm="ngForm" (ngSubmit)="addTicket(ticketForm)">
     User Name:<input type="text" name="userName" ngModel /> Subject:<input

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FavoriteService } from '../favorite.service';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
 
@@ -9,7 +10,7 @@ import { TicketService } from '../ticket.service';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
-
+  name:string = FavoriteService.userName;
   tickets:Ticket[] = [];
   constructor(private TicketService:TicketService) { }
 
