@@ -38,5 +38,21 @@ namespace HelpDeskTicketSystemProject.Controllers
             return context.Tickets.FirstOrDefault(t => t.Id == id);
         }
 
+        [HttpPatch("ResolveTicket")]
+        public Ticket ResolveTicket(int id, string ResolvedBy, string Resolution)
+        {
+            Ticket ticket = context.Tickets.FirstOrDefault(t => t.Id == id);
+            ticket.ResolvedBy = ResolvedBy;
+            ticket.Resolution = Resolution;
+            ticket.DateClosed = DateTime.Now;
+            ticket.Status = "Closed";
+            context.Tickets.Update(ticket);
+            context.SaveChanges();
+            return ticket;
+        }
+
+
+
+
     }
 }

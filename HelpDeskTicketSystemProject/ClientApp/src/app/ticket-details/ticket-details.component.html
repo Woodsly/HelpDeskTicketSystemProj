@@ -1,1 +1,20 @@
-<h2>{{ displayTicket.subjectLine }} - {{ displayTicket.userName }}</h2>
+<h2>
+  Subject: {{ displayTicket.subjectLine }} - User: {{ displayTicket.userName }}
+</h2>
+<p>{{ displayTicket.questionDetails }}</p>
+<p>Date Opened: {{ displayTicket.dateOpened | date: "MM/dd/yyyy" }}</p>
+<p>Current Status: {{ displayTicket.status }}</p>
+
+<div>
+  <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">
+    Resolution:<textarea
+      name="resolution"
+      rows="5"
+      cols="40"
+      ngModel
+    ></textarea>
+    <br /><br />
+    Resolved By:<input type="text" name="resolvedBy" ngModel />
+    <button>Submit Resolution</button>
+  </form>
+</div>

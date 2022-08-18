@@ -24,6 +24,10 @@ export class TicketService {
     return this.http.post(`${this.baseUrl}${this.endpoint}/AddAPost?UserName=${newTicket.userName}&SubjectLine=${newTicket.subjectLine}&QuestionDetails=${newTicket.questionDetails}&Status=${newTicket.status}`,{});
   }
 
+  resolveTicket(theTicketId:number, form:NgForm):any{
+    return this.http.patch(`${this.baseUrl}${this.endpoint}/ResolveTicket?id=${theTicketId}&ResolvedBy=${form.form.value.resolvedBy}&Resolution=${form.form.value.resolution}`,{});
+  }
+
 
   
 }
