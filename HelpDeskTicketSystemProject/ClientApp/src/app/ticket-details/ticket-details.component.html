@@ -5,7 +5,18 @@
 <p>Date Opened: {{ displayTicket.dateOpened | date: "MM/dd/yyyy" }}</p>
 <p>Current Status: {{ displayTicket.status }}</p>
 
-<div>
+<div *ngIf="displayTicket.status == 'Closed'">
+  <p>Resolution: {{displayTicket.resolution}}</p>
+  <p>Date Closed: {{ displayTicket.dateClosed | date: "MM/dd/yyyy" }}</p>
+  <p>Resolved By: {{displayTicket.resolvedBy}}</p>
+
+
+
+
+
+</div>
+
+<div *ngIf="displayTicket.status == 'Open'">
   <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">
     Resolution:<textarea
       name="resolution"

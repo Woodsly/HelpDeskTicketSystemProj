@@ -25,7 +25,8 @@ namespace HelpDeskTicketSystemProject.Controllers
                 SubjectLine = SubjectLine,
                 QuestionDetails = QuestionDetails,
                 Status = Status,
-                DateOpened = DateTime.Now
+                DateOpened = DateTime.Now,
+                Favorited = false
             };
             context.Tickets.Add(newTicket);
             context.SaveChanges();
@@ -46,6 +47,16 @@ namespace HelpDeskTicketSystemProject.Controllers
             ticket.Resolution = Resolution;
             ticket.DateClosed = DateTime.Now;
             ticket.Status = "Closed";
+            context.Tickets.Update(ticket);
+            context.SaveChanges();
+            return ticket;
+        }
+
+        [HttpPatch("AddFavorite")]
+        public Ticket AddFavorite(int id)
+        {
+            Ticket ticket = context.Tickets.FirstOrDefault(t => t.Id == id);            
+            ticket.Favorited = true;
             context.Tickets.Update(ticket);
             context.SaveChanges();
             return ticket;
