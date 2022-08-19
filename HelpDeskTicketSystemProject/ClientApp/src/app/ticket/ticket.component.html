@@ -1,4 +1,4 @@
-<div *ngFor="let t of tickets">
+<div *ngFor="let t of tickets" class="card m-1 p-1">
   <a routerLink="/GetTicketById/{{ t.id }}">click here</a>
   <h2>{{ t.id }}. {{ t.subjectLine }}</h2>
   <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>

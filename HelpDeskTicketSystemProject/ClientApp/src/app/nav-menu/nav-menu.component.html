@@ -29,22 +29,20 @@
           >
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li
+            *ngIf="getLogIn() != null"
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+          >
             <a class="nav-link text-dark" [routerLink]="['/tickets']"
               >Tickets</a
             >
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li
+            *ngIf="getLogIn() != null"
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+          >
             <a class="nav-link text-dark" [routerLink]="['/FavTickets']"
               >Favorites</a
             >

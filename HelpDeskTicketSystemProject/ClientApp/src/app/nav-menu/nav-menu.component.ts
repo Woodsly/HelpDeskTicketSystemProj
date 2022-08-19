@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FavoriteService } from '../favorite.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,12 +8,17 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
-
+  logInName:string = FavoriteService.userName;
+  constructor(private favoriteService:FavoriteService) { }
   collapse() {
     this.isExpanded = false;
   }
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  getLogIn():any{
+    return FavoriteService.userName;
   }
 }
