@@ -45,8 +45,8 @@
         <button class="formButtonDesign" (click)="toggleForm()">Cancel</button>
       </div>
     </div>
-    <div *ngFor="let t of tickets" class="card m-3 p-1 col-10">
-      <h2>{{ t.id }}. {{ t.subjectLine }}</h2>
+    <div *ngFor="let t of SortTickets()" class="card m-3 p-1 col-10">
+      <h2>{{ t.subjectLine }}</h2>
       <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
       <p>Status: {{ t.status }}</p>
       <button

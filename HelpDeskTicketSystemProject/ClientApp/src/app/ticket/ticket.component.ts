@@ -18,6 +18,7 @@ export class TicketComponent implements OnInit {
   ngOnInit(): void {
     this.TicketService.showAllTickets().subscribe((response:Ticket[]) => {
       this.tickets = response;
+      this.tickets.sort((a,b) => (a.dateOpened < b.dateOpened) ? 1 : ((b.dateOpened < a.dateOpened) ? -1 : 0));
       console.log(this.tickets);
       console.log(response);
     });
@@ -39,12 +40,16 @@ export class TicketComponent implements OnInit {
     this.TicketService.addTicket(newTicket).subscribe((response:Ticket) => {
       console.log(response);
       this.tickets.push(response);
-
+      this.tickets = this.SortTickets();
     })
     this.toggleForm();
   }
 
   toggleForm():void{
     this.displayForm = !this.displayForm;
+  }
+
+  SortTickets():Ticket[]{
+    return this.tickets.sort((a,b) => (a.dateOpened < b.dateOpened) ? 1 : ((b.dateOpened < a.dateOpened) ? -1 : 0));
   }
 }

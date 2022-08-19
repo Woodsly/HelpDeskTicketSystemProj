@@ -29,6 +29,7 @@ export class TicketDetailsComponent implements OnInit {
     let params = this.route.snapshot.paramMap;
     let id:number = Number(params.get("id"));
     this.ticketService.resolveTicket(id, form).subscribe((response:Ticket) => {
+      this.displayTicket = response;
       console.log(response);
     })
     
