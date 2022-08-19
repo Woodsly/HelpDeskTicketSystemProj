@@ -11,7 +11,7 @@
   <p>Resolved By: {{ displayTicket.resolvedBy }}</p>
 </div>
 
-<!-- <button (click)="addToFavorites()"></button> -->
+<button (click)="addToFavorites()">Add to Favorites</button>
 
 <div *ngIf="displayTicket.status == 'Open'">
   <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">

@@ -52,15 +52,15 @@ namespace HelpDeskTicketSystemProject.Controllers
             return ticket;
         }
 
-        [HttpPatch("AddFavorite")]
-        public Ticket AddFavorite(int id)
-        {
-            Ticket ticket = context.Tickets.FirstOrDefault(t => t.Id == id);            
-            ticket.Favorited = true;
-            context.Tickets.Update(ticket);
-            context.SaveChanges();
-            return ticket;
-        }
+        //[HttpPatch("AddFavorite")]
+        //public Ticket AddFavorite(int id)
+        //{
+        //    Ticket ticket = context.Tickets.FirstOrDefault(t => t.Id == id);            
+        //    ticket.Favorited = true;
+        //    context.Tickets.Update(ticket);
+        //    context.SaveChanges();
+        //    return ticket;
+        //}
 
 
 

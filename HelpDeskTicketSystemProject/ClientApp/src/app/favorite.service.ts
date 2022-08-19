@@ -11,6 +11,11 @@ export class FavoriteService {
   
   AddFavorite(id:number):any{
     return this.http.post(`${this.baseUrl}${this.endPoint}/AddFavorite?id=${id}&name=${FavoriteService.userName}`, {});
-   }
+   };
+
+
+  ShowFavoriteTickets():any{
+    return this.http.get(`${this.baseUrl}${this.endPoint}/ShowFavoriteTickets?userName=${FavoriteService.userName}`);
+  };
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Favorite } from '../favorite';
+import { FavoriteService } from '../favorite.service';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
 
@@ -11,7 +13,8 @@ import { TicketService } from '../ticket.service';
 })
 export class TicketDetailsComponent implements OnInit {
   displayTicket:Ticket = {} as Ticket;
-  constructor(private ticketService:TicketService, private route:ActivatedRoute) { }
+  newFavorite:Favorite = {} as Favorite;
+  constructor(private ticketService:TicketService, private route:ActivatedRoute, private favoriteService:FavoriteService) { }
 
   ngOnInit(): void {
     let params = this.route.snapshot.paramMap;
@@ -31,8 +34,13 @@ export class TicketDetailsComponent implements OnInit {
     
   }
 
-  // addToFavorites():void{
-
-  // }
+  addToFavorites():void{
+    let params = this.route.snapshot.paramMap;
+    let id:number = Number(params.get("id"));
+    this.favoriteService.AddFavorite(id).subscribe((response:Favorite) => {
+      this.newFavorite = response;
+      console.log(response);
+    });
+  }
 
 }
