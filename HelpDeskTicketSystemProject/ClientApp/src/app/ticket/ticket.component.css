@@ -1,0 +1,11 @@
+.form-modal{
+    position: fixed;
+    z-index: 100;
+    left: 25%;
+  top: 25%;
+  width: auto; /* Full width */
+  height: auto; /* Full height */
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+}

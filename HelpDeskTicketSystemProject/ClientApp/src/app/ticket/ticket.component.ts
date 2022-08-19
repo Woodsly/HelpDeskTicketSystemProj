@@ -12,6 +12,7 @@ import { TicketService } from '../ticket.service';
 export class TicketComponent implements OnInit {
   name:string = FavoriteService.userName;
   tickets:Ticket[] = [];
+  displayForm:boolean = false;
   constructor(private TicketService:TicketService) { }
 
   ngOnInit(): void {
@@ -38,6 +39,12 @@ export class TicketComponent implements OnInit {
     this.TicketService.addTicket(newTicket).subscribe((response:Ticket) => {
       console.log(response);
       this.tickets.push(response);
+
     })
+    this.toggleForm();
+  }
+
+  toggleForm():void{
+    this.displayForm = !this.displayForm;
   }
 }

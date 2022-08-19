@@ -1,30 +1,36 @@
 <div class="container">
-     <div class="row offset-2 ">
-      <div *ngFor="let t of tickets" class="card m-3 p-1 col-10">
-        <h2>{{ t.id }}. {{ t.subjectLine }}</h2>
-        <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
-        <p>Status: {{ t.status }}</p>
-        <button type="button" class="btn btn-primary btn-sm col-3 " routerLink="/GetTicketById/{{ t.id }}">Details</button>
+  <div class="row offset-2">
+    <button (click)="toggleForm()">Click me</button>
+    <div class="form-modal" *ngIf="displayForm">
+      <form (ngSubmit)="addTicket(ticketForm)" #ticketForm="ngForm">
+        User Name:<input type="text" name="userName" ngModel /> Subject:<input
+          type="text"
+          name="subjectLine"
+          ngModel
+        />
+        <br /><br />
+        Question Details:<textarea
+          name="questionDetails"
+          rows="5"
+          cols="40"
+          ngModel
+        ></textarea>
+        <br /><br />
+        <button>Submit Ticket</button>
+      </form>
+      <button (click)="toggleForm()">Cancel</button>
+    </div>
+    <div *ngFor="let t of tickets" class="card m-3 p-1 col-10">
+      <h2>{{ t.id }}. {{ t.subjectLine }}</h2>
+      <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
+      <p>Status: {{ t.status }}</p>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm col-3"
+        routerLink="/GetTicketById/{{ t.id }}"
+      >
+        Details
+      </button>
     </div>
   </div>
-<h1>{{ name }}</h1>
-<div>
-  <form #ticketForm="ngForm" (ngSubmit)="addTicket(ticketForm)">
-    User Name:<input type="text" name="userName" ngModel /> Subject:<input
-      type="text"
-      name="subjectLine"
-      ngModel
-    />
-    <br /><br />
-    Question Details:<textarea
-      name="questionDetails"
-      rows="5"
-      cols="40"
-      ngModel
-    ></textarea>
-    <br /><br />
-    <button>Submit Ticket</button>
-  </form>
-</div>
-
 </div>
