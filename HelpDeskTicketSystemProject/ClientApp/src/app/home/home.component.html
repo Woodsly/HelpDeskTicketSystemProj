@@ -1,4 +1,4 @@
-<form #usernameForm="ngForm" (ngSubmit)="addUserName(usernameForm)">
+<form ngNativeValidate #usernameForm="ngForm" (ngSubmit)="addUserName(usernameForm)">
   <input type="text" name="userName" required ngModel />
   <button>Submit</button>
 </form>
