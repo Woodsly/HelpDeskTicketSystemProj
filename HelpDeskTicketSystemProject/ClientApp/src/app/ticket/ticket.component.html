@@ -48,7 +48,8 @@
     </div>
     <div *ngFor="let t of SortTickets()" id="card" class="card m-3 p-3 col-10">
       <h2>{{ t.subjectLine }}</h2>
-      <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
+      <h5>Request From: {{t.userName}}</h5>
+      <p>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</p>
       <p>Status: {{ t.status }}</p>
       <button
         type="button"
