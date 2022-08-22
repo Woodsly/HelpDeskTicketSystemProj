@@ -20,5 +20,9 @@ code {
 }
 
 body{
-  background-color: rgb(241, 241, 241);
+  background: rgb(247,247,247);
+background: linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(213,222,255,1) 50%, rgba(209,209,209,1) 100%);
+
+
+
 }

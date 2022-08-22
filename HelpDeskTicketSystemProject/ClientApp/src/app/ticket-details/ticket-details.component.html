@@ -4,12 +4,19 @@
       <h5 class="card-header">
         {{ displayTicket.subjectLine }}
       </h5>
-      <div class="card-body">
+      <div class="card-body p-2">
         <h5 class="card-title">{{ displayTicket.userName }}</h5>
         <p class="card-text">
           Date Opened: {{ displayTicket.dateOpened | date: "MM/dd/yyyy" }}
         </p>
         <p class="card-text">{{ displayTicket.questionDetails }}</p>
+        <button
+          style="margin-bottom: 10px"
+          class="btn btn-primary btn-sm col-lg-2"
+          (click)="addToFavorites()"
+        >
+          Add to Favorites
+        </button>
       </div>
     </div>
   </div>
@@ -21,7 +28,7 @@
     >
       <div>
         <h5 class="card-header">Resolved By: {{ displayTicket.resolvedBy }}</h5>
-        <div class="card-body">
+        <div class="card-body p-2">
           <h5 class="card-title">Resolution:</h5>
           <p class="card-text">{{ displayTicket.resolution }}</p>
           <p class="card-text">
@@ -30,41 +37,43 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <button
-    style="margin-bottom: 10px"
-    class="btn btn-primary btn-sm col-lg-2"
-    (click)="addToFavorites()"
-  >
-    Add to Favorites
-  </button>
-
-  <div class="card m-1 p-2" *ngIf="displayTicket.status == 'Open'" id="card">
-    <div>
-      <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">
-        <textarea
-          placeholder="Resolution"
-          style="margin-top: 10px"
-          name="resolution"
-          rows="5"
-          cols="40"
-          ngModel
-        ></textarea>
-        <br /><br />
-        <input
-          type="text"
-          placeholder="Resolved by"
-          name="resolvedBy"
-          ngModel
-        />
-        <button
-          class="btn btn-primary btn-sm col-2"
-          style="margin-left: 5px; margin-bottom: 5px"
+    <div
+      class="card m-3 p-2 col-10"
+      *ngIf="displayTicket.status == 'Open'"
+      id="card"
+    >
+      <div>
+        <form
+          #resolutionForm="ngForm"
+          (ngSubmit)="addResolution(resolutionForm)"
         >
-          Submit Resolution
-        </button>
-      </form>
+          <textarea
+            placeholder="Resolution"
+            style="margin-top: 10px"
+            name="resolution"
+            id="textarea"
+            ngModel
+          ></textarea>
+          <br /><br />
+          <input
+            type="text"
+            placeholder="Resolved by"
+            name="resolvedBy"
+            id="textbox"
+            ngModel
+          />
+          <br /><br />
+          <div class="row">
+            <button
+              class="btn btn-primary btn-sm col-4 m-3"
+              style="margin-left: 5px; margin-bottom: 5px"
+            >
+              Submit Resolution
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

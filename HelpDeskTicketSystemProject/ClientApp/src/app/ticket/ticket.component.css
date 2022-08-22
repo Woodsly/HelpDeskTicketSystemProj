@@ -30,17 +30,33 @@ textarea{
   height: 100%;
 }
 
-.formButtonDesign{
-  margin-left:90px;
-  margin-top: 5%;
-  padding-left: 5%;
-  background: linear-gradient(to right, #0c1882, #57f8f5 );
-  border: #57f8f5;
-  border-radius: 5px;
-  width: 60%;
-  height: 8%;
-
+@media (min-width: 300px){
+  .formButtonDesign{
+    margin-left:10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-left: 5%;
+    background: linear-gradient(to right, #0c1882, #57f8f5 );
+    border: #57f8f5;
+    border-radius: 5px;
+    width: 80%;
+    height: 8%;
+  }
 }
+
+@media (min-width: 768px){
+  .formButtonDesign{
+    margin-left:30px;
+    margin-top: 5%;
+    padding-left: 5%;
+    background: linear-gradient(to right, #0c1882, #57f8f5 );
+    border: #57f8f5;
+    border-radius: 5px;
+    width: 60%;
+    height: 8%;
+  }
+}
+
 
 .formButtonDesign:hover {
   background: linear-gradient(to right, #57f8f5, #0c1882 );
