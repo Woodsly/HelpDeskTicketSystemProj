@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="card m-3 p-1 col-10">
+    <div class="card m-3 p-0 col-10" id="card">
       <h5 class="card-header">
         {{ displayTicket.subjectLine }}
       </h5>
@@ -14,7 +14,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="card m-3 p-1 col-10" *ngIf="displayTicket.status == 'Closed'">
+    <div
+      class="card m-3 p-0 col-10"
+      *ngIf="displayTicket.status == 'Closed'"
+      id="card"
+    >
       <div>
         <h5 class="card-header">Resolved By: {{ displayTicket.resolvedBy }}</h5>
         <div class="card-body">
@@ -28,19 +32,39 @@
     </div>
   </div>
 
-  <button (click)="addToFavorites()">Add to Favorites</button>
+  <button
+    style="margin-bottom: 10px"
+    class="btn btn-primary btn-sm col-lg-2"
+    (click)="addToFavorites()"
+  >
+    Add to Favorites
+  </button>
 
-  <div *ngIf="displayTicket.status == 'Open'">
-    <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">
-      Resolution:<textarea
-        name="resolution"
-        rows="5"
-        cols="40"
-        ngModel
-      ></textarea>
-      <br /><br />
-      Resolved By:<input type="text" name="resolvedBy" ngModel />
-      <button>Submit Resolution</button>
-    </form>
+  <div class="card m-1 p-2" *ngIf="displayTicket.status == 'Open'" id="card">
+    <div>
+      <form #resolutionForm="ngForm" (ngSubmit)="addResolution(resolutionForm)">
+        <textarea
+          placeholder="Resolution"
+          style="margin-top: 10px"
+          name="resolution"
+          rows="5"
+          cols="40"
+          ngModel
+        ></textarea>
+        <br /><br />
+        <input
+          type="text"
+          placeholder="Resolved by"
+          name="resolvedBy"
+          ngModel
+        />
+        <button
+          class="btn btn-primary btn-sm col-2"
+          style="margin-left: 5px; margin-bottom: 5px"
+        >
+          Submit Resolution
+        </button>
+      </form>
+    </div>
   </div>
 </div>

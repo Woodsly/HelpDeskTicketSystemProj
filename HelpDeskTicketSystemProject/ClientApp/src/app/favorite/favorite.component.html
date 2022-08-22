@@ -1,3 +1,22 @@
-<div *ngFor="let t of favoriteTickets">
-  <h1>{{ t.subjectLine }} - {{ t.userName }}</h1>
+<div class="container">
+  <h1 style="text-align: center">Favorites</h1>
+  <div class="row offset-2">
+    <div
+      class="row"
+      *ngFor="let t of favoriteTickets"
+      id="card"
+      class="card m-3 p-3 col-10"
+    >
+      <h2>{{ t.subjectLine }}</h2>
+      <h5>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</h5>
+      <p>Status: {{ t.status }}</p>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm col-lg-3"
+        routerLink="/GetTicketById/{{ t.id }}"
+      >
+        Details
+      </button>
+    </div>
+  </div>
 </div>

@@ -3,8 +3,8 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']"
-        >HelpDeskTicketSystemProject</a
+      <a class="navbar-brand" id="navbar" [routerLink]="['/']"
+        >Help Desk Requests</a
       >
       <button
         class="navbar-toggler"
@@ -27,14 +27,24 @@
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a
+              class="nav-link"
+              [routerLink]="['/']"
+              id="navbar"
+              style="color: blue"
+              >Home</a
+            >
           </li>
           <li
             *ngIf="getLogIn() != null"
             class="nav-item"
             [routerLinkActive]="['link-active']"
           >
-            <a class="nav-link text-dark" [routerLink]="['/tickets']"
+            <a
+              class="nav-link"
+              [routerLink]="['/tickets']"
+              id="navbar"
+              style="color: blue"
               >Tickets</a
             >
           </li>
@@ -43,7 +53,11 @@
             class="nav-item"
             [routerLinkActive]="['link-active']"
           >
-            <a class="nav-link text-dark" [routerLink]="['/FavTickets']"
+            <a
+              class="nav-link"
+              [routerLink]="['/FavTickets']"
+              id="navbar"
+              style="color: blue"
               >Favorites</a
             >
           </li>

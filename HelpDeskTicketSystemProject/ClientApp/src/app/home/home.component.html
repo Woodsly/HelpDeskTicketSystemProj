@@ -1,4 +1,21 @@
-<form ngNativeValidate #usernameForm="ngForm" (ngSubmit)="addUserName(usernameForm)">
-  <input type="text" name="userName" required ngModel />
-  <button>Submit</button>
-</form>
+<div class="container">
+  <form
+    class="card col-4 m-1 p-1"
+    id="card"
+    ngNativeValidate
+    #usernameForm="ngForm"
+    (ngSubmit)="addUserName(usernameForm)"
+  >
+    <label for="Sign in" style="margin-bottom: 5px">Enter a User Name: </label>
+    <input
+      style="margin-bottom: 8px"
+      type="text"
+      name="Sign in"
+      id="Sign in"
+      name="userName"
+      required
+      ngModel
+    />
+    <button class="btn btn-primary btn-sm col-lg-4">Submit</button>
+  </form>
+</div>

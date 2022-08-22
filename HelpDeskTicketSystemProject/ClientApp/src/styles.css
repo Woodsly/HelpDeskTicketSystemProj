@@ -14,3 +14,11 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+#card{
+    box-shadow: 2px 3px 10px 0px rgba(0,0,0,0.75);
+}
+
+body{
+  background-color: rgb(241, 241, 241);
+}
